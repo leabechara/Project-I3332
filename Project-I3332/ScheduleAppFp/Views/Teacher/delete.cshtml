@@ -1,0 +1,18 @@
+﻿@model Teacher
+
+@{
+	ViewBag.Title = "delete teacher";
+}
+
+<h1 class="display-4">Delete teacher</h1>
+<ul class="list-group mb-2">
+	<li class="List-group-item">
+		@Model.FullName;
+	</li>
+</ul>
+
+<form asp-action="Delete" method="post">
+	<input type="hidden" asp-for="TeacherId">
+	<button type="submit"class="btn btn=dark">Delete</button>
+	<a asp-action="Index" asp-controller="Teacher" class="btn btn-outline-dark">Cancel</a>
+</form>

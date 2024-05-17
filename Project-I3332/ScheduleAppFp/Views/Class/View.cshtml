@@ -1,0 +1,30 @@
+﻿@model Class
+
+@{
+    ViewBag.Title = "Class Details";
+}
+
+<div class="container">
+    <h1 class="mt-3">Class Details</h1>
+
+    <dl class="row mt-4">
+        <dt class="col-sm-3">Title</dt>
+        <dd class="col-sm-9">@Model.Title</dd>
+
+        <dt class="col-sm-3">Number</dt>
+        <dd class="col-sm-9">@Model.Number</dd>
+
+        <dt class="col-sm-3">Teacher</dt>
+        <dd class="col-sm-9">@Model.Teacher.FullName</dd>
+
+        <dt class="col-sm-3">Day</dt>
+        <dd class="col-sm-9">@Model.Day.Name</dd>
+
+        <dt class="col-sm-3">Military Time</dt>
+        <dd class="col-sm-9">@Model.MilitaryTime</dd>
+    </dl>
+
+    <div class="mt-4">
+        <a asp-action="Index" asp-controller="Home" class="btn btn-outline-dark">Back to List</a>
+    </div>
+</div>

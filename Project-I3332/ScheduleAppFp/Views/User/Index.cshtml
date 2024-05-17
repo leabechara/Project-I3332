@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Class>
+
+@{
+    ViewData["Title"] = "Schedule";
+}
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
+
+    h1 {
+        color: #007bff;
+        text-align: center;
+    }
+
+    .btn-custom {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-custom:hover {
+            background-color: #218838;
+        }
+
+    .btn-view {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-view:hover {
+            background-color: #0056b3;
+        }
+
+    .table {
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .thead-dark th {
+        background-color: #343a40;
+        color: #fff;
+    }
+
+    .btn-edit {
+        background-color: #ffc107;
+        color: #212529;
+    }
+
+    .btn-delete {
+        background-color: #dc3545;
+        color: #fff;
+    }
+</style>
+
+<div class="container">
+    <div class="text-center mt-4">
+        <h1>Class Schedule</h1>
+        @foreach (var day in ViewBag.Days)
+        {
+            <a asp-action="Index" asp-route-id="@day.DayId" class="btn btn-outline-primary m-2">@day.Name</a>
+        }
+    </div>
+
+    <div class="table-responsive mt-4">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Title</th>
+                    <th>Number</th>
+                    <th>Teacher</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Class c in Model)
+                {
+                    <tr>
+                        <td>@c.Title</td>
+                        <td>@c.Number</td>
+                        <td>@c.Teacher.FullName</td>
+                        <td>@c.Day.Name</td>
+                        <td>@c.MilitaryTime</td>
+                     
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
